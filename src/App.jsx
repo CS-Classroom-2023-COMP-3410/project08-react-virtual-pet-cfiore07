@@ -11,6 +11,11 @@ function App(){
         bond: 50
     });
 
+    const [petActivity, setPetActivity] = useState(null)
+
+    const [lastInteracted, setLastInteracted] = useState({/*get timestamp of last button press*/})
+
+    const [lastVisited, setLastVisited] = useState(Date.now())
 }
 
 export default App;

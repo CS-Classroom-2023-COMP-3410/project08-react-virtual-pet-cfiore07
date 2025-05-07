@@ -11,4 +11,20 @@ function usePet() {
       cleanPet,
       toggleSleep
     };
+
+    function feed() {
+
+    }
+
+    function sleep() {
+
+    }
+
+    function play() {
+
+    }
+
+    function clean() {
+
+    }
   }
