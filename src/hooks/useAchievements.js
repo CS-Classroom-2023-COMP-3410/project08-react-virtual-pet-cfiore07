@@ -34,7 +34,7 @@ function useAchievements(petState) {
             });
             setNotification('Achievement Unlocked: First Meal!');
         }
-        if(petStats.energy >= 100 && achievements[1].unlocked === false) {
+        if(petState.energy >= 100 && achievements[1].unlocked === false) {
             setAchievements(prev => {
                 const newAchievements = [...prev];
                 newAchievements[1].unlocked = true;
@@ -42,7 +42,7 @@ function useAchievements(petState) {
             });
             setNotification('Achievement Unlocked: Well Rested!');
         }
-        if(petStats.cleanCount >= 5 && achievements[2].unlocked === false) {
+        if(stats.cleanCount >= 5 && achievements[2].unlocked === false) {
             setAchievements(prev => {
                 const newAchievements = [...prev];
                 newAchievements[2].unlocked = true;
@@ -50,7 +50,7 @@ function useAchievements(petState) {
             });
             setNotification('Achievement Unlocked: Squeaky Clean!');
         }
-        if(petStats.bond >= 100 && achievements[3].unlocked === false) {
+        if(petState.bond >= 100 && achievements[3].unlocked === false) {
             setAchievements(prev => {
                 const newAchievements = [...prev];
                 newAchievements[3].unlocked = true;
@@ -58,7 +58,7 @@ function useAchievements(petState) {
             });
             setNotification('Achievement Unlocked: Best Friends!');
         }
-        if(petStats.age >= 25 && achievements[4].unlocked === false) {
+        if(petState.age >= 25 && achievements[4].unlocked === false) {
             setAchievements(prev => {
                 const newAchievements = [...prev];
                 newAchievements[4].unlocked = true;
@@ -66,7 +66,7 @@ function useAchievements(petState) {
             });
             setNotification('Achievement Unlocked: Growing Up!');
         }
-        if(petStats.age >= 50 && achievements[5].unlocked === false) {
+        if(petState.age >= 50 && achievements[5].unlocked === false) {
             setAchievements(prev => {
                 const newAchievements = [...prev];
                 newAchievements[5].unlocked = true;
@@ -74,7 +74,7 @@ function useAchievements(petState) {
             });
             setNotification('Achievement Unlocked: Adulthood!');
         }
-        if(petStats.hunger >= 80 && petStats.energy >= 80 && petStats.happiness >= 80 && petStats.cleanliness >= 80 && petStats.age >= 1 && achievements[6].unlocked === false) {
+        if(petState.hunger >= 80 && petState.energy >= 80 && petState.happiness >= 80 && petState.cleanliness >= 80 && petState.age >= 1 && achievements[6].unlocked === false) {
             setAchievements(prev => {
                 const newAchievements = [...prev];
                 newAchievements[6].unlocked = true;

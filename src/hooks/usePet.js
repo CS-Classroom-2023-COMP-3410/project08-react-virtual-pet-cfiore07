@@ -84,7 +84,7 @@ function usePet() {
         ...prev,
         stats: {
           ...prev.stats,
-          energy: Math.min(prev.stats.energy -7 , 0),
+          energy: Math.min(prev.stats.energy - 5, 100),
           happiness: Math.min(prev.stats.happiness + 5, 100),
           bond: Math.min(prev.stats.bond + 3, 100)
         },

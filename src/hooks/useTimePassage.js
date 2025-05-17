@@ -16,7 +16,7 @@ function useTimePassage(petState, setPetState) {
 
         const interval = setInterval(() => {
             applyStatDecay();
-        }, 60000);
+        }, 5000);
 
         return () => clearInterval(interval);
     }, []);
