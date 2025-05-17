@@ -17,3 +17,5 @@ function useLocalStorage(petState, setPetState) {
         localStorage.setItem('petData', JSON.stringify(petState));
     }, [petState]);
 }
+
+export default useLocalStorage;

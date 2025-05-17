@@ -1,4 +1,11 @@
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import { useState } from 'react';
+import { useEffect } from 'react';
+import PetDisplay from './components/PetDisplay';
+import usePet from './hooks/usePet';
+import StatusBars from './components/StatusBars';
+import ActionButtons from './components/ActionButtons';
 function App(){
     const {
         petState,
@@ -7,7 +14,7 @@ function App(){
         feed,
         play,
         clean,
-        sleep
+        sleep,
     } = usePet();
     return (
         <div>

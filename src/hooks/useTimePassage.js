@@ -41,3 +41,6 @@ function useTimePassage(petState, setPetState) {
         //apply stat decay over long periods of time
     }
 }
+
+
+export default useTimePassage;
