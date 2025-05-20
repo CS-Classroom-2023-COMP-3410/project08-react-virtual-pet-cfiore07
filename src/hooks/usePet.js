@@ -28,7 +28,7 @@ function usePet() {
   useLocalStorage(petState, setPetState);
   useTimePassage(petState, setPetState);
   const { achievements, notification, trackInteraction } = useAchievements(petState);
-
+  // console.log(petState);
   const mood = calculateMood(petState.stats, petState.activity); //implement calculateMood
 
     // State and logic implementation...
@@ -58,25 +58,27 @@ function usePet() {
     }
 
     function sleep() {
-      setPetState(prev => ({
-        ...prev,
-        stats: {
-          ...prev.stats,
-          energy: Math.min(prev.stats.energy + 5, 100),
-        },
-        activity: 'sleeping',
-        lastInteraction: Date.now()
-      }));
-
-      trackInteraction('sleep');
-
-
-      setTimeout(() => {
-        setPetState(prev => ({
-        ...prev,
-        activity: null
-        }));
-        }, 3000);
+      setPetState(prev => {
+        if (prev.activity === 'sleeping') {
+          return {
+            ...prev,
+            activity: null,
+            lastInteraction: Date.now()
+          };
+        } 
+        else {
+          trackInteraction('sleep');
+          return {
+            ...prev,
+            stats: {
+              ...prev.stats,
+              energy: Math.min(prev.stats.energy + 5, 100),
+            },
+            activity: 'sleeping',
+            lastInteraction: Date.now()
+          };
+        }
+      });  
     }
 
     function play() {
@@ -125,6 +127,13 @@ function usePet() {
         activity: null
         }));
         }, 3000);
+    }
+
+    function toggleAchievements() {
+      setPetState(prev => ({
+        ...prev,
+        achievements: !prev.achievements
+      }));
     }
 
     function calculateMood(stats, activity) {

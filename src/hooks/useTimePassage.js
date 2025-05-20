@@ -15,7 +15,26 @@ function useTimePassage(petState, setPetState) {
         }));
 
         const interval = setInterval(() => {
-            applyStatDecay();
+            setPetState(prev => {
+                if (prev.activity === 'sleeping') {
+                    return {
+                        ...prev,
+                        stats: {
+                            ...prev.stats,
+                            energy: Math.min(prev.stats.energy + 5, 100)
+                        }
+                    };
+                }
+                else {
+                    applyStatDecay();
+                    return {
+                        ...prev,
+                        stats: {
+                            ...prev.stats,
+                        }
+                    }
+                }
+            });
         }, 5000);
 
         return () => clearInterval(interval);
@@ -39,6 +58,14 @@ function useTimePassage(petState, setPetState) {
 
     function applyTimePassage(minutes) {
         //apply stat decay over long periods of time
+        setPetState(prev => {
+            const newStats = {...prev.stats };
+            newStats.age = Math.min(newStats.age + Math.floor(minutes / 10), 100);
+            return {
+                ...prev,
+                stats: newStats
+            };
+        });
     }
 }
 

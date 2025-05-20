@@ -20,11 +20,16 @@ function PetDisplay({ stats, mood, activity }){
     }
 
     return (
-        <div className="pet-display">
-            <div className="pet-emoji">{GROWTH_STAGES[stage].emoji}</div>
-            <div className="pet-info">
-                <div className="pet-stage"> {stage}</div>
-                <div className="pet-mood">Mood: {mood}</div>
+        <div>
+            <div className="pet-display">
+                <div className="pet-emoji">{GROWTH_STAGES[stage].emoji}</div>
+                <div className="pet-info">
+                    <div className="pet-stage"> {stage}</div>
+                    <div className="pet-mood">Mood: {mood}</div>
+                    {activity && (
+                        <div className="pet-activity">Activity: {activity}</div>
+                    )}
+                </div>
             </div>
         </div>
     );

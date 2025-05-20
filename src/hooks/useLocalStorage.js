@@ -8,7 +8,7 @@ function useLocalStorage(petState, setPetState) {
                 setPetState(JSON.parse(savedPet));
             }
             catch (error){
-                //implement handling the error
+                console.log("Failed to parse data from local storage", error);
             }
         }
     }, []);

@@ -75,7 +75,7 @@ function StatusBars({ stats }) {
                     ></div>
                 </div>
             </div>
-            <div className="pet-age">Age: {stats.age}</div>
+            <div className="pet-age">Age: {stats.age} pet days</div>
         </div>
     );
 }

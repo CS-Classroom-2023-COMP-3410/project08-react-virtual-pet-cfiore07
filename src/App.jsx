@@ -15,21 +15,30 @@ function App(){
         play,
         clean,
         sleep,
+        toggleAchievements
     } = usePet();
     return (
         <div>
-            <PetDisplay
-                stats={petState.stats}
-                mood={mood}
-                activity={petState.activity}
-            />
-            <StatusBars stats={petState.stats} />
-            <ActionButtons
-                feed={feed}
-                play={play}
-                clean={clean}
-                sleep={sleep}
-            />
+            <div className="virtual-pet-app">
+                <header>
+                    <h1>Virtual Pet: Pixel</h1>
+                </header>
+                <main>
+                    <PetDisplay
+                        stats={petState.stats}
+                        mood={mood}
+                        activity={petState.activity}
+                    />
+                    <StatusBars stats={petState.stats} />
+                    <ActionButtons
+                        feed={feed}
+                        play={play}
+                        clean={clean}
+                        sleep={sleep}
+                        showAchievements={achievements}
+                    />
+                </main>
+            </div>
         </div>
     );
 }
